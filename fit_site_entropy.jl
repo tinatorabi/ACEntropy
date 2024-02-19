@@ -173,7 +173,7 @@ function fit_site_entropy(bo, deg, rcut, data_tr, S_tr, F_tr, n_train, data_ts, 
         D_mat[((3*n_at+1)*n_at*(i-1)+(n_at+1)):((3*n_at+1)*n_at*i), :] = ∂descriptors[∂_rows, :]
         Y_vec[((3*n_at+1)*n_at*(i-1)+1):((3*n_at+1)*n_at*(i-1)+n_at)] = y_matrix[A_rows]
         Y_vec[((3*n_at+1)*n_at*(i-1)+(n_at+1)):((3*n_at+1)*n_at*i), :] = F_train_[∂_rows]
-        W[(3*n_at+1)*n_at*(i-1)+1:(3*n_at+1)*n_at*(i-1)+n_at] .= 10000/sqrt((n_at ÷ 2))
+        W[(3*n_at+1)*n_at*(i-1)+1:(3*n_at+1)*n_at*(i-1)+n_at] .= 100/sqrt((n_at ÷ 2))
     end
 
 
