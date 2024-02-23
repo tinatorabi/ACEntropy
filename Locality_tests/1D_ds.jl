@@ -9,6 +9,8 @@ using Elliptic
 using Elliptic.Jacobi: sn, cn, dn
 using Random, Distributions
 using SymbolicUtils
+import ComplexElliptic.ellipjc
+import ComplexElliptic.ellipkkp
 include("envelope.jl")
 
 n= 800
@@ -107,7 +109,7 @@ function Contour_integral(dhdu)
     for j in 1:15
         L, U= lu(w[j]^2 .* H0_- H1_)
         P= U \ (L \ F_l)
-        S = S + (f(w[j]^2) * w[j]) * (P'* dhdu * P) * dzdt[j]
+        S = S + (log(w[j]^2) * w[j]) * (P'* dhdu * P) * dzdt[j]
     end
     S = -8 * KK * (m * M)^(1/4) * imag(S) / (k * pi * N);
     return S
